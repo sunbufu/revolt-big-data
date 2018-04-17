@@ -15,6 +15,9 @@ spring:
     username: root
     password: 123456
 
+logging:
+  path: log/
+
 url:
   jd:
     priceBySkuid: https://p.3.cn/prices/mgets
