@@ -1,0 +1,30 @@
+package com.sunbufu.controller;
+
+import io.swagger.annotations.Api;
+import io.swagger.annotations.ApiOperation;
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+
+/**
+ * 主页接口
+ *
+ * @author sunbufu
+ */
+@Api(tags = {"主页"})
+@Controller
+public class HomeController {
+
+    @RequestMapping("/")
+    public String root() {
+        return "redirect:/index";
+    }
+
+    @ApiOperation("主页")
+    @RequestMapping(value = "index", method = RequestMethod.GET)
+    public String index(Model model) {
+        return "index";
+    }
+
+}

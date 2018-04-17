@@ -1,0 +1,21 @@
+api:
+  version: 1.0.0
+
+server:
+  port: 8081
+
+spring:
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: true
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/revolt_big_data?useSSL=false
+    username: root
+    password: 123456
+
+url:
+  jd:
+    priceBySkuid: https://p.3.cn/prices/mgets
+
