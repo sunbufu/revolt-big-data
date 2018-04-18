@@ -1,4 +1,4 @@
-package com.sunbufu.revoltbigdata;
+package com.sunbufu;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;

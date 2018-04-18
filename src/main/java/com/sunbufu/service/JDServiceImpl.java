@@ -1,6 +1,8 @@
 package com.sunbufu.service;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
+import com.sunbufu.dao.UserDao;
+import com.sunbufu.entity.User;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -23,6 +25,9 @@ public class JDServiceImpl implements JDService {
 
     @Autowired
     private RestTemplate restTemplate;
+
+    @Autowired
+    private UserDao userDao;
 
     @Override
     public double searchBySkuId(String skuId) {

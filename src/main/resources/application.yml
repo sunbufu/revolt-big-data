@@ -9,6 +9,7 @@ spring:
     hibernate:
       ddl-auto: update
     show-sql: true
+    database: mysql
   datasource:
     driver-class-name: com.mysql.cj.jdbc.Driver
     url: jdbc:mysql://rm-2ze94ns7xf3ho49rjko.mysql.rds.aliyuncs.com:3306/revolt_big_data?useSSL=false
