@@ -1,0 +1,207 @@
+# Created by .ignore support plugin (hsz.mobi)
+### JetBrains template
+# Covers JetBrains IDEs: IntelliJ, RubyMine, PhpStorm, AppCode, PyCharm, CLion, Android Studio and WebStorm
+# Reference: https://intellij-support.jetbrains.com/hc/en-us/articles/206544839
+
+# User-specific stuff
+.idea/**/workspace.xml
+.idea/**/tasks.xml
+.idea/**/dictionaries
+.idea/**/shelf
+
+# Sensitive or high-churn files
+.idea/**/dataSources/
+.idea/**/dataSources.ids
+.idea/**/dataSources.local.xml
+.idea/**/sqlDataSources.xml
+.idea/**/dynamic.xml
+.idea/**/uiDesigner.xml
+
+# Gradle
+.idea/**/gradle.xml
+.idea/**/libraries
+
+# CMake
+cmake-build-debug/
+cmake-build-release/
+
+# Mongo Explorer plugin
+.idea/**/mongoSettings.xml
+
+# File-based project format
+*.iws
+
+# IntelliJ
+out/
+
+# mpeltonen/sbt-idea plugin
+.idea_modules/
+
+# JIRA plugin
+atlassian-ide-plugin.xml
+
+# Cursive Clojure plugin
+.idea/replstate.xml
+
+# Crashlytics plugin (for Android Studio and IntelliJ)
+com_crashlytics_export_strings.xml
+crashlytics.properties
+crashlytics-build.properties
+fabric.properties
+
+# Editor-based Rest Client
+.idea/httpRequests
+### macOS template
+# General
+.DS_Store
+.AppleDouble
+.LSOverride
+
+# Icon must end with two \r
+Icon
+
+# Thumbnails
+._*
+
+# Files that might appear in the root of a volume
+.DocumentRevisions-V100
+.fseventsd
+.Spotlight-V100
+.TemporaryItems
+.Trashes
+.VolumeIcon.icns
+.com.apple.timemachine.donotpresent
+
+# Directories potentially created on remote AFP share
+.AppleDB
+.AppleDesktop
+Network Trash Folder
+Temporary Items
+.apdisk
+### Java template
+# Compiled class file
+*.class
+
+# Log file
+*.log
+
+# BlueJ files
+*.ctxt
+
+# Mobile Tools for Java (J2ME)
+.mtj.tmp/
+
+# Package Files #
+*.jar
+*.war
+*.nar
+*.ear
+*.zip
+*.tar.gz
+*.rar
+
+# virtual machine crash logs, see http://www.java.com/en/download/help/error_hotspot.xml
+hs_err_pid*
+
+.gitignore
+.idea/compiler.xml
+.idea/encodings.xml
+.idea/inspectionProfiles/
+.idea/libraries/Maven__antlr_antlr_2_7_7.xml
+.idea/libraries/Maven__ch_qos_logback_logback_classic_1_2_3.xml
+.idea/libraries/Maven__ch_qos_logback_logback_core_1_2_3.xml
+.idea/libraries/Maven__com_fasterxml_classmate_1_3_4.xml
+.idea/libraries/Maven__com_fasterxml_jackson_core_jackson_annotations_2_9_0.xml
+.idea/libraries/Maven__com_fasterxml_jackson_core_jackson_core_2_9_5.xml
+.idea/libraries/Maven__com_fasterxml_jackson_core_jackson_databind_2_9_5.xml
+.idea/libraries/Maven__com_fasterxml_jackson_datatype_jackson_datatype_jdk8_2_9_5.xml
+.idea/libraries/Maven__com_fasterxml_jackson_datatype_jackson_datatype_jsr310_2_9_5.xml
+.idea/libraries/Maven__com_fasterxml_jackson_module_jackson_module_parameter_names_2_9_5.xml
+.idea/libraries/Maven__com_google_guava_guava_18_0.xml
+.idea/libraries/Maven__com_jayway_jsonpath_json_path_2_4_0.xml
+.idea/libraries/Maven__com_vaadin_external_google_android_json_0_0_20131108_vaadin1.xml
+.idea/libraries/Maven__com_zaxxer_HikariCP_2_7_8.xml
+.idea/libraries/Maven__dom4j_dom4j_1_6_1.xml
+.idea/libraries/Maven__io_springfox_springfox_core_2_6_1.xml
+.idea/libraries/Maven__io_springfox_springfox_schema_2_6_1.xml
+.idea/libraries/Maven__io_springfox_springfox_spi_2_6_1.xml
+.idea/libraries/Maven__io_springfox_springfox_spring_web_2_6_1.xml
+.idea/libraries/Maven__io_springfox_springfox_swagger2_2_6_1.xml
+.idea/libraries/Maven__io_springfox_springfox_swagger_common_2_6_1.xml
+.idea/libraries/Maven__io_springfox_springfox_swagger_ui_2_6_1.xml
+.idea/libraries/Maven__io_swagger_swagger_annotations_1_5_10.xml
+.idea/libraries/Maven__io_swagger_swagger_models_1_5_10.xml
+.idea/libraries/Maven__javax_annotation_javax_annotation_api_1_3_2.xml
+.idea/libraries/Maven__javax_transaction_javax_transaction_api_1_2.xml
+.idea/libraries/Maven__javax_validation_validation_api_2_0_1_Final.xml
+.idea/libraries/Maven__junit_junit_4_12.xml
+.idea/libraries/Maven__mysql_mysql_connector_java_6_0_6.xml
+.idea/libraries/Maven__net_bytebuddy_byte_buddy_1_7_11.xml
+.idea/libraries/Maven__net_bytebuddy_byte_buddy_agent_1_7_11.xml
+.idea/libraries/Maven__net_minidev_accessors_smart_1_2.xml
+.idea/libraries/Maven__net_minidev_json_smart_2_3.xml
+.idea/libraries/Maven__org_apache_logging_log4j_log4j_api_2_10_0.xml
+.idea/libraries/Maven__org_apache_logging_log4j_log4j_to_slf4j_2_10_0.xml
+.idea/libraries/Maven__org_apache_tomcat_embed_tomcat_embed_core_8_5_29.xml
+.idea/libraries/Maven__org_apache_tomcat_embed_tomcat_embed_el_8_5_29.xml
+.idea/libraries/Maven__org_apache_tomcat_embed_tomcat_embed_websocket_8_5_29.xml
+.idea/libraries/Maven__org_aspectj_aspectjweaver_1_8_13.xml
+.idea/libraries/Maven__org_assertj_assertj_core_3_9_1.xml
+.idea/libraries/Maven__org_attoparser_attoparser_2_0_4_RELEASE.xml
+.idea/libraries/Maven__org_hamcrest_hamcrest_core_1_3.xml
+.idea/libraries/Maven__org_hamcrest_hamcrest_library_1_3.xml
+.idea/libraries/Maven__org_hibernate_common_hibernate_commons_annotations_5_0_1_Final.xml
+.idea/libraries/Maven__org_hibernate_hibernate_core_5_2_16_Final.xml
+.idea/libraries/Maven__org_hibernate_javax_persistence_hibernate_jpa_2_1_api_1_0_0_Final.xml
+.idea/libraries/Maven__org_hibernate_validator_hibernate_validator_6_0_9_Final.xml
+.idea/libraries/Maven__org_javassist_javassist_3_22_0_GA.xml
+.idea/libraries/Maven__org_jboss_jandex_2_0_3_Final.xml
+.idea/libraries/Maven__org_jboss_logging_jboss_logging_3_3_2_Final.xml
+.idea/libraries/Maven__org_mapstruct_mapstruct_1_0_0_Final.xml
+.idea/libraries/Maven__org_mockito_mockito_core_2_15_0.xml
+.idea/libraries/Maven__org_objenesis_objenesis_2_6.xml
+.idea/libraries/Maven__org_ow2_asm_asm_5_0_4.xml
+.idea/libraries/Maven__org_skyscreamer_jsonassert_1_5_0.xml
+.idea/libraries/Maven__org_slf4j_jul_to_slf4j_1_7_25.xml
+.idea/libraries/Maven__org_slf4j_slf4j_api_1_7_25.xml
+.idea/libraries/Maven__org_springframework_boot_spring_boot_2_0_1_RELEASE.xml
+.idea/libraries/Maven__org_springframework_boot_spring_boot_autoconfigure_2_0_1_RELEASE.xml
+.idea/libraries/Maven__org_springframework_boot_spring_boot_starter_2_0_1_RELEASE.xml
+.idea/libraries/Maven__org_springframework_boot_spring_boot_starter_aop_2_0_1_RELEASE.xml
+.idea/libraries/Maven__org_springframework_boot_spring_boot_starter_data_jpa_2_0_1_RELEASE.xml
+.idea/libraries/Maven__org_springframework_boot_spring_boot_starter_jdbc_2_0_1_RELEASE.xml
+.idea/libraries/Maven__org_springframework_boot_spring_boot_starter_json_2_0_1_RELEASE.xml
+.idea/libraries/Maven__org_springframework_boot_spring_boot_starter_logging_2_0_1_RELEASE.xml
+.idea/libraries/Maven__org_springframework_boot_spring_boot_starter_test_2_0_1_RELEASE.xml
+.idea/libraries/Maven__org_springframework_boot_spring_boot_starter_thymeleaf_2_0_1_RELEASE.xml
+.idea/libraries/Maven__org_springframework_boot_spring_boot_starter_tomcat_2_0_1_RELEASE.xml
+.idea/libraries/Maven__org_springframework_boot_spring_boot_starter_web_2_0_1_RELEASE.xml
+.idea/libraries/Maven__org_springframework_boot_spring_boot_test_2_0_1_RELEASE.xml
+.idea/libraries/Maven__org_springframework_boot_spring_boot_test_autoconfigure_2_0_1_RELEASE.xml
+.idea/libraries/Maven__org_springframework_data_spring_data_commons_2_0_6_RELEASE.xml
+.idea/libraries/Maven__org_springframework_data_spring_data_jpa_2_0_6_RELEASE.xml
+.idea/libraries/Maven__org_springframework_plugin_spring_plugin_core_1_2_0_RELEASE.xml
+.idea/libraries/Maven__org_springframework_plugin_spring_plugin_metadata_1_2_0_RELEASE.xml
+.idea/libraries/Maven__org_springframework_spring_aop_5_0_5_RELEASE.xml
+.idea/libraries/Maven__org_springframework_spring_aspects_5_0_5_RELEASE.xml
+.idea/libraries/Maven__org_springframework_spring_beans_5_0_5_RELEASE.xml
+.idea/libraries/Maven__org_springframework_spring_context_5_0_5_RELEASE.xml
+.idea/libraries/Maven__org_springframework_spring_core_5_0_5_RELEASE.xml
+.idea/libraries/Maven__org_springframework_spring_expression_5_0_5_RELEASE.xml
+.idea/libraries/Maven__org_springframework_spring_jcl_5_0_5_RELEASE.xml
+.idea/libraries/Maven__org_springframework_spring_jdbc_5_0_5_RELEASE.xml
+.idea/libraries/Maven__org_springframework_spring_orm_5_0_5_RELEASE.xml
+.idea/libraries/Maven__org_springframework_spring_test_5_0_5_RELEASE.xml
+.idea/libraries/Maven__org_springframework_spring_tx_5_0_5_RELEASE.xml
+.idea/libraries/Maven__org_springframework_spring_web_5_0_5_RELEASE.xml
+.idea/libraries/Maven__org_springframework_spring_webmvc_5_0_5_RELEASE.xml
+.idea/libraries/Maven__org_thymeleaf_extras_thymeleaf_extras_java8time_3_0_1_RELEASE.xml
+.idea/libraries/Maven__org_thymeleaf_thymeleaf_3_0_9_RELEASE.xml
+.idea/libraries/Maven__org_thymeleaf_thymeleaf_spring5_3_0_9_RELEASE.xml
+.idea/libraries/Maven__org_unbescape_unbescape_1_1_5_RELEASE.xml
+.idea/libraries/Maven__org_xmlunit_xmlunit_core_2_5_1.xml
+.idea/libraries/Maven__org_yaml_snakeyaml_1_19.xml
+.idea/uiDesigner.xml
+.idea/workspace.xml
+log/
+target/
