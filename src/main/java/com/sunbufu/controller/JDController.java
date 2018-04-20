@@ -1,5 +1,6 @@
 package com.sunbufu.controller;
 
+import com.sunbufu.common.RegexUtils;
 import com.sunbufu.service.JDService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -22,14 +23,19 @@ public class JDController {
     /**
      * 根据skuId查询价格
      *
-     * @param skuId
+     * @param jdUrl
      * @param model
      * @return
      */
     @RequestMapping("searchBySkuId")
-    public String searchBySkuId(String skuId, Model model) {
-        if (StringUtils.isEmpty(skuId)) {
-            model.addAttribute("msg", "skuId不能为空");
+    public String searchBySkuId(String jdUrl, Model model) {
+        if (StringUtils.isEmpty(jdUrl)) {
+            model.addAttribute("msg", "请输入jd商品链接");
+            return "error";
+        }
+        String skuId = RegexUtils.getSkuIdFromJDUrl(jdUrl);
+        if(StringUtils.isEmpty(skuId)){
+            model.addAttribute("msg", "请输入正确的jd商品链接");
             return "error";
         }
         double price = jdService.searchBySkuId(skuId);
