@@ -35,7 +35,7 @@ public class Swagger2Config {
 
     private ApiInfo apiInfo() {
         return new ApiInfoBuilder()
-                .title("Spring Boot 测试使用 Swagger2 构建RESTful API")
+                .title("反大数据杀熟 RESTful API")
                 .version(version)
                 .description("API 描述")
                 .build();

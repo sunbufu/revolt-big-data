@@ -6,26 +6,29 @@ import org.springframework.data.annotation.LastModifiedDate;
 import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 
 import javax.persistence.*;
+import java.sql.Timestamp;
 
 @Entity
-@EntityListeners(AuditingEntityListener.class)
 @Table
+@EntityListeners(AuditingEntityListener.class)
 public class User {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Integer id;
+    private int id;
 
+    @Column(nullable = false, columnDefinition = "varchar(255) default \"\"")
     private String userName;
+    @Column(nullable = false, columnDefinition = "varchar(255) default \"\"")
     private String passWord;
 
-    @Column(updatable = false)
+    @Column(columnDefinition = "timestamp", updatable = false)
     @CreatedDate
-    private Long createTime;
+    private Timestamp createTime;
 
-    @Column
+    @Column(columnDefinition = "timestamp")
     @LastModifiedDate
-    private Long updateTime;
+    private Timestamp updateTime;
 
     @Override
     public String toString() {
@@ -40,11 +43,11 @@ public class User {
 
     //--------GETTER/SETTER
 
-    public Integer getId() {
+    public int getId() {
         return id;
     }
 
-    public void setId(Integer id) {
+    public void setId(int id) {
         this.id = id;
     }
 
@@ -64,19 +67,19 @@ public class User {
         this.passWord = passWord;
     }
 
-    public Long getCreateTime() {
+    public Timestamp getCreateTime() {
         return createTime;
     }
 
-    public void setCreateTime(Long createTime) {
+    public void setCreateTime(Timestamp createTime) {
         this.createTime = createTime;
     }
 
-    public Long getUpdateTime() {
+    public Timestamp getUpdateTime() {
         return updateTime;
     }
 
-    public void setUpdateTime(Long updateTime) {
+    public void setUpdateTime(Timestamp updateTime) {
         this.updateTime = updateTime;
     }
 }
