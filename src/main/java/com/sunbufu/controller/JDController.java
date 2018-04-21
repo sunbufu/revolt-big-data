@@ -1,6 +1,6 @@
 package com.sunbufu.controller;
 
-import com.sunbufu.common.RegexUtils;
+import com.sunbufu.common.util.RegexUtils;
 import com.sunbufu.service.JDService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;

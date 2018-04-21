@@ -1,6 +1,6 @@
 package com.sunbufu.common;
 
-import org.junit.Assert;
+import com.sunbufu.common.util.RegexUtils;
 import org.junit.Test;
 
 import java.util.ArrayList;

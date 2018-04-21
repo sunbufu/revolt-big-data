@@ -1,4 +1,4 @@
-package com.sunbufu.common;
+package com.sunbufu.common.util;
 
 import org.springframework.util.StringUtils;
 
