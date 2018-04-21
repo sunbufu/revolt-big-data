@@ -1,6 +1,6 @@
-package com.sunbufu.entity;
+package com.sunbufu.po;
 
-import com.sunbufu.entity.type.SystemRecordType;
+import com.sunbufu.po.type.SystemRecordType;
 import org.springframework.data.annotation.CreatedDate;
 import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 

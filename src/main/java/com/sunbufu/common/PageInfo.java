@@ -13,6 +13,8 @@ public class PageInfo implements Serializable {
     private Integer pageNum;
     /**页面大小*/
     private Integer pageSize;
+    /**总页数*/
+    private Integer pageCount;
     /**记录总条数*/
     private Integer totalCount;
 
@@ -24,11 +26,17 @@ public class PageInfo implements Serializable {
         this.totalCount = totalCount;
     }
 
+    public PageInfo(Integer pageNum, Integer pageCount) {
+        this.pageNum = pageNum;
+        this.pageCount = pageCount;
+    }
+
     @Override
     public String toString() {
         return "PageInfo{" +
                 "pageNum=" + pageNum +
                 ", pageSize=" + pageSize +
+                ", pageCount=" + pageCount +
                 ", totalCount=" + totalCount +
                 '}';
     }
@@ -55,5 +63,13 @@ public class PageInfo implements Serializable {
 
     public void setTotalCount(Integer totalCount) {
         this.totalCount = totalCount;
+    }
+
+    public Integer getPageCount() {
+        return pageCount;
+    }
+
+    public void setPageCount(Integer pageCount) {
+        this.pageCount = pageCount;
     }
 }

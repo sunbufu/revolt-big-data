@@ -1,14 +1,14 @@
 package com.sunbufu;
 
+import com.fasterxml.jackson.databind.ObjectMapper;
 import com.sunbufu.common.util.NetUtils;
 import com.sunbufu.dao.SystemRecordDao;
-import com.sunbufu.entity.SystemRecord;
-import com.sunbufu.entity.type.SystemRecordType;
+import com.sunbufu.po.SystemRecord;
+import com.sunbufu.po.type.SystemRecordType;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.context.event.ApplicationFailedEvent;
-import org.springframework.boot.context.event.ApplicationPreparedEvent;
 import org.springframework.boot.context.event.ApplicationReadyEvent;
 import org.springframework.boot.web.client.RestTemplateBuilder;
 import org.springframework.context.ApplicationListener;
@@ -33,6 +33,11 @@ public class RevoltBigDataApplication {
     @Bean
     public RestTemplate restTemplate() {
         return new RestTemplateBuilder().additionalMessageConverters(new StringHttpMessageConverter(Charset.forName("UTF-8"))).build();
+    }
+
+    @Bean
+    public ObjectMapper objectMapper(){
+        return new ObjectMapper();
     }
 
     public static void main(String[] args) {

@@ -1,6 +1,8 @@
 package com.sunbufu.service;
 
+import com.sunbufu.common.PageList;
 import com.sunbufu.common.exception.ServiceException;
+import com.sunbufu.dto.JdSkuDTO;
 
 /**
  * JD服务
@@ -24,4 +26,12 @@ public interface JdService {
      */
     double searchBySkuId(String skuId) throws ServiceException;
 
+    /**
+     * 根据关键字查询商品
+     *
+     * @param keyword
+     * @param pageNum
+     * @return
+     */
+    PageList<JdSkuDTO> searchByKeyword(String keyword, int pageNum) throws ServiceException;
 }

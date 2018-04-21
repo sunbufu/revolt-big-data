@@ -1,4 +1,4 @@
-package com.sunbufu.entity.type;
+package com.sunbufu.po.type;
 
 /**
  * 系统记录类型

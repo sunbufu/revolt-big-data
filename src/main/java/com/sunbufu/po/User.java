@@ -1,4 +1,4 @@
-package com.sunbufu.entity;
+package com.sunbufu.po;
 
 
 import org.springframework.data.annotation.CreatedDate;
