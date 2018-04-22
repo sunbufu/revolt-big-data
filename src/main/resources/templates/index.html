@@ -3,22 +3,23 @@
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
-    <link href="../static/style/index.css" th:href="@{/style/index.css}" rel="stylesheet"/>
-    <link href="../static/third-lib/bootstrap/css/bootstrap.min.css" th:href="@{/third-lib/bootstrap/css/bootstrap.min.css}" rel="stylesheet">
-    <link href="../static/third-lib/bootstrap/font-awesome/css/font-awesome.css" th:href="@{/third-lib/bootstrap/font-awesome/css/font-awesome.css}" rel="stylesheet">
-    <link href="../static/third-lib/bootstrap/css/plugins/iCheck/custom.css" th:href="@{/third-lib/bootstrap/css/plugins/iCheck/custom.css}" rel="stylesheet">
-    <link href="../static/third-lib/bootstrap/css/animate.css" th:href="@{/third-lib/bootstrap/css/animate.css}" rel="stylesheet">
-    <link href="../static/third-lib/bootstrap/css/style.css" th:href="@{/third-lib/bootstrap/css/style.css}" rel="stylesheet">
+    <link th:href="@{/third-lib/bootstrap/css/bootstrap.min.css}" rel="stylesheet">
+    <link th:href="@{/third-lib/bootstrap/font-awesome/css/font-awesome.css}" rel="stylesheet">
+    <link th:href="@{/third-lib/bootstrap/css/plugins/iCheck/custom.css}" rel="stylesheet">
+    <link th:href="@{/third-lib/bootstrap/css/animate.css}" rel="stylesheet">
+    <link th:href="@{/third-lib/bootstrap/css/style.css}" rel="stylesheet">
+    <link th:href="@{/style/index.css}" rel="stylesheet"/>
 </head>
 <body class="main">
-<div class="content">
-    <form action="jd/searchBySkuId" id="searchForm">
-        <input name="jdUrl" type="text" value="https://item.jd.com/21114666049.html" class="form-control" style="width:500px;display:inline"/>
-        <button type="submit" class="btn btn-w-m btn-primary">查询</button>
-    </form>
-
-</div>
-<script src="../static/common/jquery-2.2.3.min.js" th:src="@{/common/jquery-2.2.3.min.js}"></script>
-<script src="../static/script/index.js" th:src="@{/script/index.js}"></script>
+    <div class="content">
+            <form action="jd/searchBySkuId" id="searchForm">
+                <input name="jdUrl" type="text" value="https://item.jd.com/21114666049.html" class="form-control input_search" />
+                <span class="input-group-btn btn_warp">
+                   <input type="submit" class="btn btn-w-m btn-primary btn_search" th:value="查询"/>
+                </span>
+            </form>
+    </div>
+<script th:src="@{/common/jquery-2.2.3.min.js}"></script>
+<script th:src="@{/script/index.js}"></script>
 </body>
 </html>

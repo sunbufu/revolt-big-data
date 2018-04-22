@@ -10,3 +10,14 @@
     top: 37%;
     margin: 0px auto;
 }
+.input_search{
+    width:500px;
+    display:inline;
+}
+.btn_warp{
+    display:inline;
+    margin-left: -4px;
+}
+.btn_search{
+    margin-top: -4px;
+}
