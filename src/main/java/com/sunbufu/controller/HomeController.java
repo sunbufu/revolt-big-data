@@ -16,15 +16,15 @@ import org.springframework.web.bind.annotation.RequestMethod;
 @Controller
 public class HomeController {
 
-    @RequestMapping("/")
+    @ApiOperation("主页")
+    @RequestMapping(value = "/", method = RequestMethod.GET)
     public String root() {
-        return "redirect:/index";
+        return "index";
     }
 
-    @ApiOperation("主页")
     @RequestMapping(value = "index", method = RequestMethod.GET)
     public String index(Model model) {
-        return "index";
+        return "redirect:/";
     }
 
 }

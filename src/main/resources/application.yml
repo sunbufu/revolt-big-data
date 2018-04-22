@@ -23,5 +23,6 @@ logging:
 
 url:
   jd:
-    priceBySkuid: https://p.3.cn/prices/mgets
+    priceBySkuId: https://p.3.cn/prices/mgets
+    skuIdByKeyword: https://search.jd.com/Search?enc=utf-8&keyword=
 

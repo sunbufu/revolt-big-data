@@ -2,12 +2,61 @@
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>title</title>
 </head>
 <body>
 <h1>成功</h1>
-<h1>
+<p>
     <th th:text="'价格='+${msg}"/>
-</h1>
+</p>
+<p th:text="'keyword=' + ${#httpServletRequest.getParameter('keyword')}"/>
+<p th:text="${pageList.getPageInfo().toString()}"/>
+<button onclick="prev()">上一页</button>
+<button onClick="next()">下一页</button>
+
+<script th:inline="javascript">
+    var keyword = /*[[${#httpServletRequest.getParameter('keyword')}]]*/ 'pro6';
+    var pageNum = /*[[${pageList.getPageInfo().getPageNum()}]]*/ 1;
+    var pageCount = /*[[${pageList.getPageInfo().getPageCount()}]]*/ 1;
+    /**下一页*/
+    function next() {
+        if((pageNum+1) <= pageCount){
+            go(keyword, ++pageNum);
+        }
+    }
+    /**上一页*/
+    function prev() {
+        if((pageNum-1) >= 1){
+            go(keyword, --pageNum);
+        }
+    }
+    /**跳转*/
+    function go(keyword, pageNum) {
+        var url = "search?key="+keyword+
+                "&pageNum="+pageNum;
+        console.log(url);
+        window.location.href = url;
+    }
+</script>
+
+<table border="1">
+    <thead>
+    <td>编号</td>
+    <td>skuId</td>
+    <td>标题</td>
+    <td>链接</td>
+    <td>图片</td>
+    <td>价格</td>
+    </thead>
+    <tr th:each="m,iterStat : ${pageList}"><!-- 其中m是个临时变量，像for(User u : userList)那样中的u-->
+        <td th:text="${iterStat.index}"/>
+        <td th:text="${m.skuId}"/>
+        <td th:text="${m.title}"/>
+        <td><a th:href="${m.url}">链接</a></td>
+        <td><img th:src="${m.img}"/></td>
+        <td th:text="${m.price}"/>
+    </tr>
+</table>
+
 </body>
 </html>
