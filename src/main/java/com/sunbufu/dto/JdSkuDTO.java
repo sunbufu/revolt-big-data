@@ -37,8 +37,7 @@ public class JdSkuDTO {
             this.price = Double.valueOf(price);
         }catch (Exception e){
             this.price = -1;
-            log.warn("价格转换失败 price={}", price);
-            e.printStackTrace();
+            log.info("价格转换失败 skuId=[{}], title=[{}], img=[{}], price=[{}]", skuId, title, img, price);
         }
     }
 
@@ -53,7 +52,7 @@ public class JdSkuDTO {
                 '}';
     }
 
-//------GETTER/SETTER
+    //------GETTER/SETTER
 
     public String getSkuId() {
         return skuId;
