@@ -16,7 +16,7 @@ public interface JdService {
      * @param jdUrl
      * @return
      */
-    double searchByJdUrl(String jdUrl) throws ServiceException;
+    JdSkuDTO searchByJdUrl(String jdUrl) throws ServiceException;
 
     /**
      * 根据skuId查询商品价格
@@ -24,7 +24,7 @@ public interface JdService {
      * @param skuId
      * @return
      */
-    double searchBySkuId(String skuId) throws ServiceException;
+    JdSkuDTO searchBySkuId(String skuId) throws ServiceException;
 
     /**
      * 根据关键字查询商品

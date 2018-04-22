@@ -17,12 +17,19 @@ spring:
     password: rbd_dev
   thymeleaf:
     cache: false
+  #日志着色
+  output:
+    ansi:
+      enabled: ALWAYS
 
 logging:
   path: log/
 
 url:
   jd:
+    #根据skuId查询价格
     priceBySkuId: https://p.3.cn/prices/mgets
+    #商品详情url+skuId.html
+    itemUrl: https://item.jd.com/
+    #关键字查询url
     skuIdByKeyword: https://search.jd.com/Search?enc=utf-8&keyword=
-

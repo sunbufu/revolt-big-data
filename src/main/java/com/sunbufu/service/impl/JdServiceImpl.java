@@ -41,6 +41,8 @@ public class JdServiceImpl implements JdService {
     private String priceBySkuIdUrl;
     @Value("${url.jd.skuIdByKeyword}")
     private String skuIdByKeywordUrl;
+    @Value("${url.jd.itemUrl}")
+    private String itemUrl;
 
     @Autowired
     private RestTemplate restTemplate;
@@ -48,7 +50,7 @@ public class JdServiceImpl implements JdService {
     private ObjectMapper objectMapper;
 
     @Override
-    public double searchByJdUrl(String jdUrl) throws ServiceException {
+    public JdSkuDTO searchByJdUrl(String jdUrl) throws ServiceException {
         log.info("查询 jdUrl={} 的价格", jdUrl);
         String skuId = RegexUtils.getSkuIdFromJDUrl(jdUrl);
         if (StringUtils.isEmpty(skuId)) {
@@ -58,12 +60,17 @@ public class JdServiceImpl implements JdService {
     }
 
     @Override
-    public double searchBySkuId(String skuId) throws ServiceException {
+    public JdSkuDTO searchBySkuId(String skuId) throws ServiceException {
         log.info("查询 skuId={} 的价格", skuId);
-        skuId = JdPriceDTO.JD_SKU_ID_PREFIX + skuId;
+        String skuIdWithPrefix = JdPriceDTO.JD_SKU_ID_PREFIX + skuId;
         try {
-            Map<String, JdPriceDTO> jdPriceMap = searchBySkuIds(Collections.singletonList(skuId));
-            return Double.parseDouble(jdPriceMap.get(skuId).getPrice());
+            Map<String, JdPriceDTO> jdPriceMap = searchBySkuIds(Collections.singletonList(skuIdWithPrefix));
+            log.info("url = [{}]", itemUrl + skuId + ".html");
+            ResponseEntity<String> response = restTemplate.getForEntity(itemUrl + skuId + ".html", String.class);
+            Document doc = Jsoup.parse(response.getBody());
+            String img = doc.select("img[id=spec-img]").attr("data-origin");
+            String title = doc.select("div[class=sku-name]").text();
+            return new JdSkuDTO(skuId, title, img, jdPriceMap.get(skuIdWithPrefix).getPrice());
         } catch (Exception e) {
             log.warn("searchBySkuId skuId={} 失败", skuId);
             e.printStackTrace();
@@ -87,10 +94,10 @@ public class JdServiceImpl implements JdService {
                 //处理图片地址（防止懒加载图片造成的地址无效）
                 Element imgEle = element.selectFirst("img");
                 String img = imgEle.attr("data-lazy-img");
-                if(StringUtils.isEmpty(img) || img.equals("done")){
+                if (StringUtils.isEmpty(img) || img.equals("done")) {
                     img = imgEle.attr("src");
                 }
-                String price = element.select("." + JdPriceDTO.JD_SKU_ID_PREFIX + skuId+" i").text();
+                String price = element.select("." + JdPriceDTO.JD_SKU_ID_PREFIX + skuId + " i").text();
                 jdSkuList.add(new JdSkuDTO(skuId, title, img, price));
             }
             //分页信息
@@ -108,14 +115,15 @@ public class JdServiceImpl implements JdService {
      * 请求skuIds对应价格
      *
      * @param skuIds with "JD_SKU_ID_PREFIX"
-     * @return map<skuId, JdPriceDTO> nullable
+     * @return map<skuId ,   JdPriceDTO> nullable
      */
     private Map<String, JdPriceDTO> searchBySkuIds(List<String> skuIds) throws IOException {
         Map<String, JdPriceDTO> skuMap;
         //将skuIds转换成请求样式
         String skuIdsStr = (skuIds.stream().reduce((result, skuId) -> result + ("," + skuId)).get());
         ResponseEntity<String> response = restTemplate.getForEntity(priceBySkuIdUrl + "?skuIds=" + skuIdsStr, String.class);
-        List<JdPriceDTO> jdPriceList = objectMapper.readValue(response.getBody(), new TypeReference<List<JdPriceDTO>>() {});
+        List<JdPriceDTO> jdPriceList = objectMapper.readValue(response.getBody(), new TypeReference<List<JdPriceDTO>>() {
+        });
         //将jdPriceList转换成map<skuId, JdPriceDTO>
         skuMap = jdPriceList.stream().collect(Collectors.toMap(JdPriceDTO::getSkuId, Function.identity()));
         return skuMap;

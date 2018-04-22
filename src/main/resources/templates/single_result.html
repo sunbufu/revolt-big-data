@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>title</title>
+</head>
+<body>
+<h1>成功</h1>
+<p>
+    <th th:text="${msg}"/>
+</p>
+
+<p th:text="${sku.title}"/>
+<p th:text="'价格='+${sku.price}"/>
+<img th:src="${sku.img}"/>
+<a th:href="${sku.url}">链接</a>
+
+</body>
+</html>

@@ -58,9 +58,8 @@ public class JdController {
             return "error";
         }
         try {
-            double price = jdService.searchByJdUrl(jdUrl);
-            model.addAttribute("msg", price);
-            return "result";
+            model.addAttribute("sku", jdService.searchByJdUrl(jdUrl));
+            return "single_result";
         } catch (ServiceException e) {
             model.addAttribute("msg", e.getMessage());
             return "error";
@@ -75,8 +74,8 @@ public class JdController {
             return "error";
         }
         try {
-            model.addAttribute("msg", jdService.searchBySkuId(skuId));
-            return "result";
+            model.addAttribute("sku", jdService.searchBySkuId(skuId));
+            return "single_result";
         } catch (ServiceException e) {
             model.addAttribute("msg", e.getMessage());
             return "error";
@@ -95,7 +94,7 @@ public class JdController {
         }
         try {
             model.addAttribute("pageList", jdService.searchByKeyword(keyword, pageNum));
-            return "result";
+            return "single_result";
         } catch (ServiceException e) {
             model.addAttribute("msg", e.getMessage());
             return "error";
