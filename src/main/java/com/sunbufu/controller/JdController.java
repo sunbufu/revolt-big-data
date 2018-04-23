@@ -94,7 +94,7 @@ public class JdController {
         }
         try {
             model.addAttribute("pageList", jdService.searchByKeyword(keyword, pageNum));
-            return "single_result";
+            return "result";
         } catch (ServiceException e) {
             model.addAttribute("msg", e.getMessage());
             return "error";
