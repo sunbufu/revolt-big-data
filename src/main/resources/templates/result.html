@@ -55,9 +55,14 @@
 <script src="../static/third-lib/bootstrap/js/inspinia.js" th:src="@{/third-lib/bootstrap/js/inspinia.js}"></script>
 <script src="../static/third-lib/bootstrap/js/plugins/pace/pace.min.js" th:src="@{/third-lib/bootstrap/js/plugins/pace/pace.min.js}"></script>
 <script th:inline="javascript">
-    var keyword = $("#keyword").val();
-    var pageNum = $("#pageNum").val();
-    var pageCount = $("#pageCount").val();
+    //var keyword = $("#keyword").val();
+    //var pageNum = $("#pageNum").val();
+    //var pageCount = $("#pageCount").val();
+
+    var keyword = /*[[${#httpServletRequest.getParameter('key')}]]*/ 'pro6';
+    var pageNum = /*[[${pageList.getPageInfo().getPageNum()}]]*/ 1;
+    var pageCount = /*[[${pageList.getPageInfo().getPageCount()}]]*/ 1;
+
     /**下一页*/
     function next() {
         if((pageNum+1) <= pageCount){
