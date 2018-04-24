@@ -2,22 +2,62 @@
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <title>title</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>查询列表</title>
+    <link rel="stylesheet" href="../static/third-lib/bootstrap/css/bootstrap.min.css" th:href="@{/third-lib/bootstrap/css/bootstrap.min.css}">
+    <link rel="stylesheet" href="../static/third-lib/bootstrap/font-awesome/css/font-awesome.css" th:href="@{/third-lib/bootstrap/font-awesome/css/font-awesome.css}">
+    <link rel="stylesheet" href="../static/third-lib/bootstrap/css/animate.css" th:href="@{/third-lib/bootstrap/css/animate.css}">
+    <link rel="stylesheet" href="../static/third-lib/bootstrap/css/style.css" th:href="@{/third-lib/bootstrap/css/style.css}">
 </head>
 <body>
-<h1>成功</h1>
-<p>
-    <th th:text="'价格='+${msg}"/>
-</p>
-<p th:text="'keyword=' + ${#httpServletRequest.getParameter('keyword')}"/>
-<p th:text="${pageList.getPageInfo().toString()}"/>
-<button onclick="prev()">上一页</button>
-<button onClick="next()">下一页</button>
+<input type="hidden" th:value="${keyword}" id="keyword">
+<input type="hidden" th:value="${pageNum}" id="pageNum">
+<input type="hidden" th:value="${pageCount}" id="pageCount">
+<div class="wrapper wrapper-content animated fadeInRight" style="margin: 0 5%;">
+    <div class="row">
+        <div class="col-md-3 col-md-4" th:each="m,iterStat : ${pageList}">
+            <div class="ibox">
+                <div class="ibox-content product-box">
+                    <div class="product-imitation">
+                        <img th:src="${m.img}"/>
+                    </div>
+                    <div class="product-desc">
+                                <span class="product-price" th:text="'￥'+${m.price}">
+                                </span>
+                        <small class="text-muted"></small>
+                        <a th:href="${m.url}" th:if="${m.title.length()>25 && m.title.length()<50}" class="product-name" th:text="${m.title}"></a>
+                        <a th:href="${m.url}" th:if="${m.title.length()<25}" class="product-name" th:text="${m.title}"></a>
+                        <a th:href="${m.url}" th:if="${m.title.length()>50}" class="product-name" th:text="${m.title.subSequence(0,45)} + '...'"></a>
+                        <div class="small m-t-xs">
 
+                        </div>
+                        <div class="m-t text-righ">
+                            <a th:href="${m.url}" class="btn btn-xs btn-outline btn-primary">Info <i class="fa fa-long-arrow-right"></i> </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="footer">
+        <div class="pull-right">
+            <button class="btn btn-primary btn-sm" onClick="next()"><i class="fa"></i> 下一页</button>
+        </div>
+        <div>
+            <button class="btn btn-primary btn-sm" onclick="prev()"><i class="fa"></i> 上一页</button>
+        </div>
+    </div>
+</div>
+<script src="../static/common/jquery-2.2.3.min.js" th:src="@{/common/jquery-2.2.3.min.js}"></script>
+<script src="../static/third-lib/bootstrap/js/bootstrap.min.js" th:src="@{/third-lib/bootstrap/js/bootstrap.min.js}"></script>
+<script src="../static/third-lib/bootstrap/js/plugins/metisMenu/jquery.metisMenu.js" th:src="@{/third-lib/bootstrap/js/plugins/metisMenu/jquery.metisMenu.js}"></script>
+<script src="../static/third-lib/bootstrap/js/plugins/slimscroll/jquery.slimscroll.min.js" th:src="@{/third-lib/bootstrap/js/plugins/slimscroll/jquery.slimscroll.min.js}"></script>
+<script src="../static/third-lib/bootstrap/js/inspinia.js" th:src="@{/third-lib/bootstrap/js/inspinia.js}"></script>
+<script src="../static/third-lib/bootstrap/js/plugins/pace/pace.min.js" th:src="@{/third-lib/bootstrap/js/plugins/pace/pace.min.js}"></script>
 <script th:inline="javascript">
-    var keyword = /*[[${#httpServletRequest.getParameter('keyword')}]]*/ 'pro6';
-    var pageNum = /*[[${pageList.getPageInfo().getPageNum()}]]*/ 1;
-    var pageCount = /*[[${pageList.getPageInfo().getPageCount()}]]*/ 1;
+    var keyword = $("#keyword").val();
+    var pageNum = $("#pageNum").val();
+    var pageCount = $("#pageCount").val();
     /**下一页*/
     function next() {
         if((pageNum+1) <= pageCount){
@@ -33,30 +73,10 @@
     /**跳转*/
     function go(keyword, pageNum) {
         var url = "search?key="+keyword+
-                "&pageNum="+pageNum;
+            "&pageNum="+pageNum;
         console.log(url);
         window.location.href = url;
     }
 </script>
-
-<table border="1">
-    <thead>
-    <td>编号</td>
-    <td>skuId</td>
-    <td>标题</td>
-    <td>链接</td>
-    <td>图片</td>
-    <td>价格</td>
-    </thead>
-    <tr th:each="m,iterStat : ${pageList}"><!-- 其中m是个临时变量，像for(User u : userList)那样中的u-->
-        <td th:text="${iterStat.index}"/>
-        <td th:text="${m.skuId}"/>
-        <td th:text="${m.title}"/>
-        <td><a th:href="${m.url}">链接</a></td>
-        <td><img th:src="${m.img}"/></td>
-        <td th:text="${m.price}"/>
-    </tr>
-</table>
-
 </body>
 </html>

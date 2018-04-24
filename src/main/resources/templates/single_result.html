@@ -2,18 +2,82 @@
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <title>title</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>产品详情</title>
+    <link rel="stylesheet" href="../static/third-lib/bootstrap/css/bootstrap.min.css" th:href="@{/third-lib/bootstrap/css/bootstrap.min.css}">
+    <link rel="stylesheet" href="../static/third-lib/bootstrap/font-awesome/css/font-awesome.css" th:href="@{/third-lib/bootstrap/font-awesome/css/font-awesome.css}">
+    <link rel="stylesheet" href="../static/third-lib/bootstrap/css/plugins/slick/slick.css" th:href="@{/third-lib/bootstrap/css/plugins/slick/slick.css}">
+    <link rel="stylesheet" href="../static/third-lib/bootstrap/css/plugins/slick/slick-theme.css" th:href="@{/third-lib/bootstrap/css/plugins/slick/slick-theme.css}">
+    <link rel="stylesheet" href="../static/third-lib/bootstrap/css/animate.css" th:href="@{/third-lib/bootstrap/css/animate.css}">
+    <link rel="stylesheet" href="../static/third-lib/bootstrap/css/style.css" th:href="@{/third-lib/bootstrap/css/style.css}">
+    <link rel="stylesheet" href="../static/third-lib/bootstrap/css/plugins/toastr/toastr.min.css" th:href="@{/third-lib/bootstrap/css/plugins/toastr/toastr.min.css}" >
+
+
 </head>
 <body>
-<h1>成功</h1>
-<p>
-    <th th:text="${msg}"/>
-</p>
+<div class="wrapper wrapper-content animated fadeInRight">
+    <div class="row">
+        <div class="col-lg-12">
 
-<p th:text="${sku.title}"/>
-<p th:text="'价格='+${sku.price}"/>
-<img th:src="${sku.img}"/>
-<a th:href="${sku.url}">链接</a>
+            <div class="ibox product-detail">
+                <div class="ibox-content">
 
+                    <div class="row">
+                        <div class="col-md-5">
+                            <div class="product-images">
+                                <div>
+                                    <div class="image-imitation">
+                                        <img th:src="${sku.img}"/>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-7">
+                            <h2 class="font-bold m-b-xs" th:text="${sku.title}"></h2>
+                            <small th:text="${sku.title}"></small>
+                            <div class="m-t-md">
+                                <h2 class="product-main-price" th:text="'￥'+${sku.price}"></h2>
+                            </div>
+                            <hr>
+                            <h4>产品描述</h4>
+                            <!--
+                            <div class="small text-muted">
+
+                            </div>
+
+                            <dl class="small m-t-md">
+                                <dt>描述列表</dt>
+                                <dd></dd>
+                            </dl>
+                            -->
+                            <hr>
+                            <div>
+                                <div class="btn-group">
+                                    <a th:href="${sku.url}"><button class="btn btn-primary btn-sm"><i class="fa"></i> 进入京东页面</button></a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
+<script src="../static/common/jquery-2.2.3.min.js" th:src="@{/common/jquery-2.2.3.min.js}"></script>
+<script src="../static/third-lib/bootstrap/js/bootstrap.min.js" th:src="@{/third-lib/bootstrap/js/bootstrap.min.js}"></script>
+<script src="../static/third-lib/bootstrap/js/plugins/metisMenu/jquery.metisMenu.js" th:src="@{/third-lib/bootstrap/js/plugins/metisMenu/jquery.metisMenu.js}"></script>
+<script src="../static/third-lib/bootstrap/js/plugins/slimscroll/jquery.slimscroll.min.js" th:src="@{/third-lib/bootstrap/js/plugins/slimscroll/jquery.slimscroll.min.js}"></script>
+<script src="../static/third-lib/bootstrap/js/inspinia.js" th:src="@{/third-lib/bootstrap/js/inspinia.js}"></script>
+<script src="../static/third-lib/bootstrap/js/plugins/pace/pace.min.js" th:src="@{/third-lib/bootstrap/js/plugins/pace/pace.min.js}"></script>
+<script src="../static/third-lib/bootstrap/js/plugins/slick/slick.min.js" th:src="@{/third-lib/bootstrap/js/plugins/slick/slick.min.js}"></script>
+
+<script>
+    $(document).ready(function(){
+        $('.product-images').slick({
+            dots: true
+        });
+    });
+</script>
 </body>
 </html>
