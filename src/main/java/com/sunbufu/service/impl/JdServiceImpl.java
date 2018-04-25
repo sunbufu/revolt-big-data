@@ -17,6 +17,8 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.cache.annotation.CachePut;
+import org.springframework.cache.annotation.Cacheable;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 import org.springframework.util.StringUtils;
@@ -50,6 +52,7 @@ public class JdServiceImpl implements JdService {
     private ObjectMapper objectMapper;
 
     @Override
+    @Cacheable(value = "jdItems")
     public JdSkuDTO searchByJdUrl(String jdUrl) throws ServiceException {
         log.info("查询 jdUrl={} 的价格", jdUrl);
         String skuId = RegexUtils.getSkuIdFromJDUrl(jdUrl);
@@ -60,6 +63,7 @@ public class JdServiceImpl implements JdService {
     }
 
     @Override
+    @Cacheable(value = "jdItems")
     public JdSkuDTO searchBySkuId(String skuId) throws ServiceException {
         log.info("查询 skuId={} 的价格", skuId);
         String skuIdWithPrefix = JdPriceDTO.JD_SKU_ID_PREFIX + skuId;
@@ -79,6 +83,7 @@ public class JdServiceImpl implements JdService {
     }
 
     @Override
+    @Cacheable(value = "jdItems")
     public PageList<JdSkuDTO> searchByKeyword(String keyword, int pageNum) throws ServiceException {
         PageList<JdSkuDTO> jdSkuList = new PageList<>();
         //jd的页面都是奇数（不知道为什么）
